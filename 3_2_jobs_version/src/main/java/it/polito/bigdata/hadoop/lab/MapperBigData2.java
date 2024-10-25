@@ -48,7 +48,7 @@ class MapperBigData2 extends Mapper<
     protected void cleanup(Context context) throws IOException, InterruptedException{
         //emit all the values in the local top-k vector
         for (WordCountWritable wc: localTopK.getLocalTopK()){
-            context.write(NullWritable.get(), wc);
+            context.write(NullWritable.get(), new WordCountWritable(wc));
         }
     }
 }

@@ -31,7 +31,7 @@ class ReducerBigData2 extends Reducer<
         TopKVector<WordCountWritable> globalVect = new TopKVector<>(100);
 
         //the insert is managed automatically by topkvector library
-        values.forEach(v -> globalVect.updateWithNewElement(v));
+        values.forEach(v -> globalVect.updateWithNewElement(new WordCountWritable(v)));
         
 
         //after all the insertions emit the last version of the GLOBAL top-k vector in the context
