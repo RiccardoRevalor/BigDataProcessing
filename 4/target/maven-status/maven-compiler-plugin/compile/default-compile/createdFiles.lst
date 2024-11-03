@@ -1,0 +1,14 @@
+org\apache\hadoop\io\nativeio\NativeIO$Windows.class
+it\polito\bigdata\hadoop\DriverBigData.class
+it\polito\bigdata\hadoop\MapperBigData.class
+org\apache\hadoop\io\nativeio\NativeIO$CachedUid.class
+org\apache\hadoop\io\nativeio\NativeIO$Windows$AccessRight.class
+it\polito\bigdata\hadoop\ReducerBigData.class
+org\apache\hadoop\io\nativeio\NativeIO$POSIX$CacheManipulator.class
+org\apache\hadoop\io\nativeio\NativeIO$POSIX$IdCache.class
+org\apache\hadoop\io\nativeio\NativeIO.class
+org\apache\hadoop\io\nativeio\NativeIO$POSIX$Stat.class
+org\apache\hadoop\io\nativeio\NativeIO$POSIX$NoMlockCacheManipulator.class
+it\polito\bigdata\hadoop\ProductRating.class
+org\apache\hadoop\io\nativeio\NativeIO$POSIX$CachedName.class
+org\apache\hadoop\io\nativeio\NativeIO$POSIX.class
