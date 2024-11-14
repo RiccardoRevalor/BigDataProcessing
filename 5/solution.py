@@ -74,6 +74,28 @@ print('Number of words starting with {} and having frequency > 0.8 * maxFreq: {}
 
 
 
+#TASK 3
+def GroupOne(l):
+    freq = l[1]
+    if 0<=freq<100:
+        return ('Group 0', 1)
+    elif 100<=freq<200:
+        return ('Group 1', 1)
+    elif 200<=freq<300:
+        return ('Group 2', 1)
+    elif 300<=freq<400:
+        return ('Group 3', 1)
+    elif 400<=freq<500:
+        return ('Group 4', 1)
+    else:
+        return ('Group 5', 1)
+    
+groupsRDD = prefixRDD.map(GroupOne)\
+.reduceByKey(lambda x, y: x+y)\
+.map(lambda t: t[0] + "\t" + str(t[1]))\
+.saveAsTextFile(outputPath3)
+    
+
 
 
 
