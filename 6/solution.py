@@ -52,6 +52,32 @@ userProductsRDD.map(lambda t: t[0] + "\t" + ",".join(t[1]))\
 
 
 
+#TASK 2
+from itertools import combinations
+def ProductPairs(t):
+    products = t[1]
+    pairs = list(combinations(products, 2)) #generate all possible pairs of products bought by the user
+    #pairs = [(p1, p2), (p1, p3), (p2, p3), ...]
+
+    #at the end I wanna have a (product1 + "," + product2, 1) tuple
+    res =  [(tupla[0] + "," + tupla[1], 1) for tupla in pairs]
+    return res
+
+#(p1 + "," + p2, 1) + (p1 + "," + p2, 1) + ... = (p1 + "," + p2, 2)
+ProductPairsRDD = userProductsRDD.flatMap(ProductPairs)\
+.reduceByKey(lambda a, b: a + b).cache()    #count the number of times each pair of products was bought together
+
+print("Number of pairs:\n", ProductPairsRDD.count())
+print("First 10 pairs:\n", ProductPairsRDD.take(10))
+
+#sort them by decreasing order of frequency
+sortedProductPairsRDD = ProductPairsRDD.filter(lambda t: t[1] > 1)\
+.sortBy(lambda t: t[1], ascending=False)\
+.map(lambda t: t[0] + "\t" + str(t[1]))\
+.saveAsTextFile(outputPath2) 
+
+
+
 
 spark.stop()
 sc.stop()
