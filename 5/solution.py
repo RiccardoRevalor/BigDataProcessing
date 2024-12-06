@@ -18,8 +18,9 @@ spark = SparkSession(sc)
 
 
 if len(sys.argv) != 4:
-    print("Usage: spark-submit <python_file_of_the_job> <prefix> <input_folder> <output_folder>")
-    sys.exit(1)
+   print("Usage: spark-submit <python_file_of_the_job> <prefix> <input_folder> <output_folder>")
+   sys.exit(1)
+
 
 prefix = sys.argv[1]
 inputPath = sys.argv[2]
