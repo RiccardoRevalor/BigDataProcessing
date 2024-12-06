@@ -1,4 +1,4 @@
-import sys
+import sys, os
 from pyspark import SparkConf, SparkContext
 from datetime import datetime
 
@@ -14,7 +14,8 @@ stationsInput = stationsInput.filter(lambda x: "id" not in x)
 registerInput = registerInput.filter(lambda x: "station" not in x)
 
 #create the KML file
-kmlOutputFile = open("output/critical_stations.kml", "w")
+#create a new file as output/critical_stations.kml
+kmlOutputFile = open("output/critical_stations.kml", 'w')
 kmlOutputFile.write('<kml xmlns="http://www.opengis.net/kml/2.2"><Document>')
 
 crit_thres = 0.4
